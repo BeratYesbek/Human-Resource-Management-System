@@ -16,13 +16,5 @@ public class JobSeeker extends User {
     @Column(name = "id")
     private int id;
 
-    public JobSeeker(int id,String firstName, String lastName, String email, String dateOfBirth, String identityNumber) {
-        super(firstName, lastName, email, dateOfBirth, identityNumber);
-        this.id  = id;
-    }
-
-    public int getId() {
-        return id;
-    }
 
 }

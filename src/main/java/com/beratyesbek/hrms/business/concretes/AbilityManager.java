@@ -1,0 +1,47 @@
+package com.beratyesbek.hrms.business.concretes;
+
+import com.beratyesbek.hrms.business.abstracts.IAbilityService;
+import com.beratyesbek.hrms.core.utilities.DataResult;
+import com.beratyesbek.hrms.core.utilities.Result;
+import com.beratyesbek.hrms.dataAccess.abstracts.IAbilityDao;
+import com.beratyesbek.hrms.entities.concretes.Ability;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class AbilityManager implements IAbilityService {
+
+    private IAbilityDao abilityDao;
+
+    @Autowired
+    public AbilityManager(IAbilityDao abilityDao) {
+        this.abilityDao = abilityDao;
+    }
+
+    @Override
+    public Result add(Ability entity) {
+        return null;
+    }
+
+    @Override
+    public Result update(Ability entity) {
+        return null;
+    }
+
+    @Override
+    public Result delete(Ability entity) {
+        return null;
+    }
+
+    @Override
+    public DataResult<List<Ability>> getAll() {
+        return null;
+    }
+
+    @Override
+    public DataResult<Ability> getById(int id) {
+        return null;
+    }
+}

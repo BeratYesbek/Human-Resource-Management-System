@@ -1,8 +1,23 @@
 package com.beratyesbek.hrms.entities.concretes;
 
-import javax.persistence.Column;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "users")
 public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
+    private int id;
 
     @Column(name = "first_name")
     private String firstName;
@@ -13,18 +28,10 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "dateOfBirth")
-    private String dateOfBirth;
+    @Column(name = "date_of_birth")
+    private Date dateOfBirth;
 
-    @Column(name = "identityNumber")
+    @Column(name = "identity_number")
     private String identityNumber;
 
-    public User(String firstName, String lastName, String email, String dateOfBirth, String identityNumber) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.dateOfBirth = dateOfBirth;
-        this.identityNumber = identityNumber;
-    }
-    public User(){}
 }

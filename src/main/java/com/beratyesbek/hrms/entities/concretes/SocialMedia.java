@@ -1,22 +1,23 @@
 package com.beratyesbek.hrms.entities.concretes;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Data
 @Entity
+@Data
 @NoArgsConstructor
-@PrimaryKeyJoinColumn(name = "id")
-@Table(name = "employees")
-
-
-public class Employee extends User {
+@AllArgsConstructor
+public class SocialMedia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "social_media_id")
+    private int social_media_id;
+
     @Column(name = "id")
-    private int id;
+    private String url;
 
 }

@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "abilities")
 public class Ability {
 
     @Id

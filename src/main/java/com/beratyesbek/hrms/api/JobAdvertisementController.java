@@ -3,6 +3,7 @@ package com.beratyesbek.hrms.api;
 import com.beratyesbek.hrms.business.abstracts.IJobAdvertisementService;
 import com.beratyesbek.hrms.core.utilities.DataResult;
 import com.beratyesbek.hrms.entities.concretes.JobAdvertisement;
+import com.beratyesbek.hrms.entities.dtos.JobAdvertisementWithEmployerDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +30,7 @@ public class JobAdvertisementController  {
     }
 
     @GetMapping("/getAllDetail")
-    private DataResult<List<JobAdvertisement>> getAllDetail(){
+    private DataResult<List<JobAdvertisementWithEmployerDto>> getAllDetail(){
         return this.jobAdvertisementService.getAllJobAdvertisementDetail();
     }
 }

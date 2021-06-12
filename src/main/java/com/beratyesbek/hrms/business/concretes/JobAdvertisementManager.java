@@ -4,6 +4,7 @@ import com.beratyesbek.hrms.business.abstracts.IJobAdvertisementService;
 import com.beratyesbek.hrms.core.utilities.*;
 import com.beratyesbek.hrms.dataAccess.abstracts.IJobAdvertisementDao;
 import com.beratyesbek.hrms.entities.concretes.JobAdvertisement;
+import com.beratyesbek.hrms.entities.dtos.JobAdvertisementWithEmployerDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,7 +50,8 @@ public class JobAdvertisementManager implements IJobAdvertisementService {
     }
 
     @Override
-    public DataResult<List<JobAdvertisement>> getAllJobAdvertisementDetail() {
-        return null; // new SuccessDataResult(this.jobAdvertisementDao.getJobAdvertisementWithEmployerDetails()) ;
+    public DataResult<List<JobAdvertisementWithEmployerDto>> getAllJobAdvertisementDetail() {
+        return new SuccessDataResult(this.jobAdvertisementDao.getJobAdvertisementWithEmployerDetails()) ;
     }
+
 }

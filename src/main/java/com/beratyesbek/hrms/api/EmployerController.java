@@ -27,4 +27,5 @@ public class EmployerController {
     private DataResult<List<Employer>> getAll(){
         return this.employerService.getAll();
     }
+
 }

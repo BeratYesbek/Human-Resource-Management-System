@@ -40,6 +40,10 @@ public class Employer {
     @Column(name = "password_again")
     private String passwordAgain;
 
+    @OneToMany(mappedBy = "employer")
+    private List<JobAdvertisement> jobAdvertisements;
+
+
 
 
 

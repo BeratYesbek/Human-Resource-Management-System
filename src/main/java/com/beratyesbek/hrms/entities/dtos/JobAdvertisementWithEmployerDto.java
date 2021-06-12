@@ -12,7 +12,7 @@ public class JobAdvertisementWithEmployerDto {
 
     private int jobAdvertisement_id;
 
-    private int companyId;
+    private int employerId;
 
     private String companyName;
 

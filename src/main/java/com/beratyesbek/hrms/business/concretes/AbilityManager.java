@@ -3,6 +3,7 @@ package com.beratyesbek.hrms.business.concretes;
 import com.beratyesbek.hrms.business.abstracts.IAbilityService;
 import com.beratyesbek.hrms.core.utilities.DataResult;
 import com.beratyesbek.hrms.core.utilities.Result;
+import com.beratyesbek.hrms.core.utilities.SuccessResult;
 import com.beratyesbek.hrms.dataAccess.abstracts.IAbilityDao;
 import com.beratyesbek.hrms.entities.concretes.Ability;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,8 @@ public class AbilityManager implements IAbilityService {
 
     @Override
     public Result add(Ability entity) {
-        return null;
+        this.abilityDao.save(entity);
+        return new SuccessResult("Ability was added successfully");
     }
 
     @Override

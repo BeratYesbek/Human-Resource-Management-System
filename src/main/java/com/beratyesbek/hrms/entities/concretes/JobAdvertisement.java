@@ -38,6 +38,9 @@ public class JobAdvertisement {
     @Column(name = "application_deadline")
     private Date applicationDeadline;
 
+    @ManyToOne
+    @JoinColumn(name = "employer_id")
+    private Employer employer;
 
 
 

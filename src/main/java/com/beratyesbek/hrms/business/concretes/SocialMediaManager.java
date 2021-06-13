@@ -3,6 +3,8 @@ package com.beratyesbek.hrms.business.concretes;
 import com.beratyesbek.hrms.business.abstracts.ISocialMediaService;
 import com.beratyesbek.hrms.core.utilities.DataResult;
 import com.beratyesbek.hrms.core.utilities.Result;
+import com.beratyesbek.hrms.core.utilities.SuccessDataResult;
+import com.beratyesbek.hrms.core.utilities.SuccessResult;
 import com.beratyesbek.hrms.dataAccess.abstracts.ISocialMediaDao;
 import com.beratyesbek.hrms.entities.concretes.SocialMedia;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +24,8 @@ public class SocialMediaManager implements ISocialMediaService {
 
     @Override
     public Result add(SocialMedia entity) {
-        return null;
+        socialMediaDao.save(entity);
+        return new SuccessResult("Social media was added successfully");
     }
 
     @Override
@@ -32,16 +35,17 @@ public class SocialMediaManager implements ISocialMediaService {
 
     @Override
     public Result delete(SocialMedia entity) {
-        return null;
+        socialMediaDao.delete(entity);
+        return new SuccessResult("Social media was deleted successfully");
     }
 
     @Override
     public DataResult<List<SocialMedia>> getAll() {
-        return null;
+        return new SuccessDataResult(this.socialMediaDao.findAll());
     }
 
     @Override
     public DataResult<SocialMedia> getById(int id) {
-        return null;
+        return new SuccessDataResult(socialMediaDao.findById(id));
     }
 }

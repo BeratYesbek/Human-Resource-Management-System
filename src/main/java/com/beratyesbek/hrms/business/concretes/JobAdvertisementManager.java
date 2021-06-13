@@ -24,7 +24,7 @@ public class JobAdvertisementManager implements IJobAdvertisementService {
     public Result add(JobAdvertisement entity) {
         Object data =  this.jobAdvertisementDao.save(entity);
         if (data != null){
-            return new SuccessResult("User was added successfully");
+            return new SuccessResult("Job advertisement was added successfully");
         }
             return new ErrorResult("An error occurred during the operation");
     }
@@ -36,7 +36,8 @@ public class JobAdvertisementManager implements IJobAdvertisementService {
 
     @Override
     public Result delete(JobAdvertisement entity) {
-        return null;
+        jobAdvertisementDao.delete(entity);
+        return new SuccessResult("Job advertisement was deleted successfully");
     }
 
     @Override
@@ -46,7 +47,7 @@ public class JobAdvertisementManager implements IJobAdvertisementService {
 
     @Override
     public DataResult<JobAdvertisement> getById(int id) {
-        return null;
+        return new SuccessDataResult(jobAdvertisementDao.findById(id));
     }
 
     @Override

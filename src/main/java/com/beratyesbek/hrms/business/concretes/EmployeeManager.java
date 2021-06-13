@@ -4,6 +4,7 @@ import com.beratyesbek.hrms.business.abstracts.IEmployeeService;
 import com.beratyesbek.hrms.core.utilities.DataResult;
 import com.beratyesbek.hrms.core.utilities.Result;
 import com.beratyesbek.hrms.core.utilities.SuccessDataResult;
+import com.beratyesbek.hrms.core.utilities.SuccessResult;
 import com.beratyesbek.hrms.dataAccess.abstracts.IEmployeeDao;
 import com.beratyesbek.hrms.entities.concretes.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,9 @@ public class EmployeeManager implements IEmployeeService {
 
     @Override
     public Result add(Employee entity) {
-        return null;
+        employeeDao.save(entity);
+
+        return new SuccessResult("Employee was added successfully");
     }
 
     @Override
@@ -34,7 +37,8 @@ public class EmployeeManager implements IEmployeeService {
 
     @Override
     public Result delete(Employee entity) {
-        return null;
+         employeeDao.delete(entity);
+         return new SuccessResult("Employee was deleted successfully");
     }
 
     @Override
@@ -44,6 +48,6 @@ public class EmployeeManager implements IEmployeeService {
 
     @Override
     public DataResult<Employee> getById(int id) {
-        return null;
+        return new SuccessDataResult(this.employeeDao.findById(id));
     }
 }

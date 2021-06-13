@@ -3,6 +3,7 @@ package com.beratyesbek.hrms.business.concretes;
 import com.beratyesbek.hrms.business.abstracts.IAbilityService;
 import com.beratyesbek.hrms.core.utilities.DataResult;
 import com.beratyesbek.hrms.core.utilities.Result;
+import com.beratyesbek.hrms.core.utilities.SuccessDataResult;
 import com.beratyesbek.hrms.core.utilities.SuccessResult;
 import com.beratyesbek.hrms.dataAccess.abstracts.IAbilityDao;
 import com.beratyesbek.hrms.entities.concretes.Ability;
@@ -34,16 +35,17 @@ public class AbilityManager implements IAbilityService {
 
     @Override
     public Result delete(Ability entity) {
-        return null;
+         abilityDao.delete(entity);
+         return new SuccessResult("Ability was deleted successfully");
     }
 
     @Override
     public DataResult<List<Ability>> getAll() {
-        return null;
+        return new SuccessDataResult(abilityDao.findAll());
     }
 
     @Override
     public DataResult<Ability> getById(int id) {
-        return null;
+        return new SuccessDataResult(abilityDao.findById(id));
     }
 }

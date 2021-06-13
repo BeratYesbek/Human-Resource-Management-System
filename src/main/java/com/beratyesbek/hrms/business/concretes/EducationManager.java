@@ -3,6 +3,8 @@ package com.beratyesbek.hrms.business.concretes;
 import com.beratyesbek.hrms.business.abstracts.IEducationService;
 import com.beratyesbek.hrms.core.utilities.DataResult;
 import com.beratyesbek.hrms.core.utilities.Result;
+import com.beratyesbek.hrms.core.utilities.SuccessDataResult;
+import com.beratyesbek.hrms.core.utilities.SuccessResult;
 import com.beratyesbek.hrms.dataAccess.abstracts.IEducationDao;
 import com.beratyesbek.hrms.entities.concretes.Education;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +24,8 @@ public class EducationManager implements IEducationService {
 
     @Override
     public Result add(Education entity) {
-        return null;
+        educationDao.save(entity);
+        return new SuccessResult("Education was added successfully");
     }
 
     @Override
@@ -32,16 +35,17 @@ public class EducationManager implements IEducationService {
 
     @Override
     public Result delete(Education entity) {
-        return null;
+         educationDao.delete(entity);
+         return new SuccessResult();
     }
 
     @Override
     public DataResult<List<Education>> getAll() {
-        return null;
+        return new SuccessDataResult(educationDao.findAll());
     }
 
     @Override
     public DataResult<Education> getById(int id) {
-        return null;
+        return new SuccessDataResult(educationDao.getById(id));
     }
 }

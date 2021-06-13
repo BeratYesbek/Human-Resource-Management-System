@@ -3,6 +3,8 @@ package com.beratyesbek.hrms.business.concretes;
 import com.beratyesbek.hrms.business.abstracts.IExperienceService;
 import com.beratyesbek.hrms.core.utilities.DataResult;
 import com.beratyesbek.hrms.core.utilities.Result;
+import com.beratyesbek.hrms.core.utilities.SuccessDataResult;
+import com.beratyesbek.hrms.core.utilities.SuccessResult;
 import com.beratyesbek.hrms.dataAccess.abstracts.IExperienceDao;
 import com.beratyesbek.hrms.entities.concretes.Experience;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +24,8 @@ public class ExperienceManager implements IExperienceService {
 
     @Override
     public Result add(Experience entity) {
-        return null;
+        experienceDao.save(entity);
+        return  new SuccessResult("Experience was added successfully");
     }
 
     @Override
@@ -32,16 +35,17 @@ public class ExperienceManager implements IExperienceService {
 
     @Override
     public Result delete(Experience entity) {
-        return null;
+        experienceDao.delete(entity);
+        return new SuccessResult("Experience was deleted successfully");
     }
 
     @Override
     public DataResult<List<Experience>> getAll() {
-        return null;
+        return new SuccessDataResult(experienceDao.findAll());
     }
 
     @Override
     public DataResult<Experience> getById(int id) {
-        return null;
+        return new SuccessDataResult(experienceDao.findById(id));
     }
 }

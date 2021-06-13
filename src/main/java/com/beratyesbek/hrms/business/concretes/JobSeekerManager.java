@@ -4,6 +4,7 @@ import com.beratyesbek.hrms.business.abstracts.IJobSeekerService;
 import com.beratyesbek.hrms.core.utilities.DataResult;
 import com.beratyesbek.hrms.core.utilities.Result;
 import com.beratyesbek.hrms.core.utilities.SuccessDataResult;
+import com.beratyesbek.hrms.core.utilities.SuccessResult;
 import com.beratyesbek.hrms.dataAccess.abstracts.IJobSeekerDao;
 import com.beratyesbek.hrms.entities.concretes.JobSeeker;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,8 @@ public class JobSeekerManager implements IJobSeekerService {
 
     @Override
     public Result add(JobSeeker entity) {
-        return null;
+        jobSeekerDao.save(entity);
+        return new SuccessResult("JobSeeker was added successfully");
     }
 
     @Override
@@ -34,7 +36,9 @@ public class JobSeekerManager implements IJobSeekerService {
 
     @Override
     public Result delete(JobSeeker entity) {
-        return null;
+         jobSeekerDao.delete(entity);
+        return new SuccessResult("Job seeker was deleted successfully");
+
     }
 
     @Override
@@ -44,6 +48,6 @@ public class JobSeekerManager implements IJobSeekerService {
 
     @Override
     public DataResult<JobSeeker> getById(int id) {
-        return null;
+        return new SuccessDataResult(jobSeekerDao.findById(id));
     }
 }

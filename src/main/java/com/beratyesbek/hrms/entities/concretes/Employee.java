@@ -19,4 +19,6 @@ public class Employee extends User {
     @Column(name = "id")
     private int id;
 
+
+
 }

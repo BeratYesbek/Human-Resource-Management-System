@@ -1,10 +1,7 @@
 package com.beratyesbek.hrms.business.concretes;
 
 import com.beratyesbek.hrms.business.abstracts.IAbilityService;
-import com.beratyesbek.hrms.core.utilities.DataResult;
-import com.beratyesbek.hrms.core.utilities.Result;
-import com.beratyesbek.hrms.core.utilities.SuccessDataResult;
-import com.beratyesbek.hrms.core.utilities.SuccessResult;
+import com.beratyesbek.hrms.core.utilities.*;
 import com.beratyesbek.hrms.dataAccess.abstracts.IAbilityDao;
 import com.beratyesbek.hrms.entities.concretes.Ability;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +42,17 @@ public class AbilityManager implements IAbilityService {
     }
 
     @Override
-    public DataResult<Ability> getById(int id) {
-        return new SuccessDataResult(abilityDao.findById(id));
+    public DataResult<Ability> getById(int ability_id) {
+        Object data = abilityDao.findById(ability_id);
+        if (data != null){
+            System.out.println("data ");
+            return new SuccessDataResult(data);
+        }
+        return new ErrorDataResult(null);
+    }
+
+    @Override
+    public DataResult<List<Ability>> getByJobSeekerId(int id) {
+        return new SuccessDataResult(abilityDao.getByJobSeekerId(id));
     }
 }

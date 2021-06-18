@@ -37,7 +37,7 @@ public class JobAdvertisementController {
     }
 
     @GetMapping("/getById")
-    private DataResult getById(@RequestBody int id) {
+    private DataResult getById( int id) {
         return jobAdvertisementService.getById(id);
     }
 

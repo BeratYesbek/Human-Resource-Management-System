@@ -7,6 +7,7 @@ import org.yaml.snakeyaml.events.Event;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -31,6 +32,10 @@ public class Experience {
 
     @Column(name = "end_date")
     private Date endDate;
+
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private JobSeeker jobSeeker;
 
 
 }

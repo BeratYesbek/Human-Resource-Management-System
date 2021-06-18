@@ -29,9 +29,10 @@ public class EmployerController {
     }
 
     @GetMapping("/getById")
-    private DataResult getById(@RequestBody int id) {
+    private DataResult getById( int id) {
         return employerService.getById(id);
     }
+
 
     @PostMapping("/add")
     private Result add(@RequestBody Employer employer) {

@@ -5,11 +5,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "Languages")
 public class Language {
 
     @Id
@@ -22,4 +24,8 @@ public class Language {
 
     @Column(name = "rating")
     private float rating;
+
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private JobSeeker jobSeeker;
 }

@@ -5,11 +5,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "abilities")
 public class Ability {
 
@@ -22,5 +23,11 @@ public class Ability {
     private String  technologyName;
 
     @Column(name = "rating")
-    private float rating;
+    private int rating;
+
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private JobSeeker jobSeeker;
+
+
 }

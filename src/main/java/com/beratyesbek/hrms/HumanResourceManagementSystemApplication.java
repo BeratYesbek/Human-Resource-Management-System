@@ -24,6 +24,6 @@ public class HumanResourceManagementSystemApplication {
                 .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.any())
                 .build();
-    }
 
+    }
 }

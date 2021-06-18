@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -18,15 +19,15 @@ public class Education {
     @Column(name = "education_id")
     private int educationId;
 
-    @Column(name = "job_seeker_id")
-    private int jobSeekerId;
-
     @Column(name = "graduate_year")
-    private int [] graduateYear;
+    private int  graduateYear;
 
     @Column(name = "school_name")
-    private String [] schoolName;
+    private String schoolName;
 
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private JobSeeker jobSeeker;
 
 
 }

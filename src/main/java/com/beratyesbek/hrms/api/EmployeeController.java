@@ -40,7 +40,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/delete")
-    private Result delete(@RequestBody Employee employee){
+    private Result delete( Employee employee){
         return employeeService.delete(employee);
     }
 }

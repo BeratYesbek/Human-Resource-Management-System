@@ -28,7 +28,7 @@ public class SocialMediaController {
     }
 
     @GetMapping("/getById")
-    private DataResult getById(@RequestBody int id) {
+    private DataResult getById( int id) {
         return socialMediaService.getById(id);
     }
 

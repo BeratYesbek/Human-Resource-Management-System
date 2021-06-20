@@ -10,5 +10,5 @@ import java.util.List;
 
 public interface IEducationDao extends JpaRepository<Education,Integer> {
 
-    List<Ability> getByJobSeekerId(int id);
+    List<Education> getByJobSeeker_Id(int id);
 }

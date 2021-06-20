@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface IAbilityDao extends JpaRepository<Ability,Integer> {
 
-    List<Ability> getByJobSeekerId(int id);
+    List<Ability> getByJobSeeker_Id(int id);
 
 
 

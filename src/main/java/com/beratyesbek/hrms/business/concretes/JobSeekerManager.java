@@ -6,7 +6,7 @@ import com.beratyesbek.hrms.core.utilities.Result;
 import com.beratyesbek.hrms.core.utilities.SuccessDataResult;
 import com.beratyesbek.hrms.core.utilities.SuccessResult;
 import com.beratyesbek.hrms.dataAccess.abstracts.IJobSeekerDao;
-import com.beratyesbek.hrms.entities.concretes.JobSeeker;
+import com.beratyesbek.hrms.entities.concretes.*;
 import com.beratyesbek.hrms.entities.dtos.CvDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +24,6 @@ public class JobSeekerManager implements IJobSeekerService {
     private IEducationService educationService;
 
 
-
     @Autowired
     public JobSeekerManager(IJobSeekerDao jobSeekerDao,
                             IAbilityService abilityService,
@@ -32,7 +31,7 @@ public class JobSeekerManager implements IJobSeekerService {
                             ISocialMediaService socialMediaService,
                             IEducationService educationService
 
-                            ) {
+    ) {
         this.abilityService = abilityService;
         this.educationService = educationService;
         this.experienceService = experienceService;
@@ -53,7 +52,7 @@ public class JobSeekerManager implements IJobSeekerService {
 
     @Override
     public Result delete(JobSeeker entity) {
-         jobSeekerDao.delete(entity);
+        jobSeekerDao.delete(entity);
         return new SuccessResult("Job seeker was deleted successfully");
 
     }
@@ -69,17 +68,20 @@ public class JobSeekerManager implements IJobSeekerService {
     }
 
 
-
     @Override
-    public DataResult<List<CvDto>> getCvByJobSeekerId(int id) {
+    public  DataResult<CvDto>  getCvByJobSeekerId(int id) {
 
-        CvDto cvDto = new CvDto();
+        abilityService.getByJobSeekerId(id).getData();
+        educationService.getByJobSeekerId(id).getData();
+        experienceService.getByJobSeekerId(id);
+        socialMediaService.getByJobSeekerId(id);
 
-        cvDto.setAbilities(abilityService.getByJobSeekerId(id).getData());
-        cvDto.setEducations(educationService.getByJobSeekerId(id).getData());
-        cvDto.setExperiences(experienceService.getByJobSeekerId(id).getData());
-        cvDto.setSocialMedia(socialMediaService.getByJobSeekerId(id).getData());
-
+       CvDto cvDto = new CvDto(null,
+                abilityService.getByJobSeekerId(id).getData(),
+                experienceService.getByJobSeekerId(id).getData(),
+                educationService.getByJobSeekerId(id).getData(),
+                null,
+                socialMediaService.getByJobSeekerId(id).getData());
 
         return new SuccessDataResult(cvDto);
     }

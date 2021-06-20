@@ -18,6 +18,8 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/abilities")
+@CrossOrigin("http://localhost:3000/")
+
 public class AbilityController {
 
     private IAbilityService abilityService;
@@ -45,6 +47,11 @@ public class AbilityController {
     @GetMapping("/getById")
     private DataResult getById( int ability_id) {
         return abilityService.getById(ability_id);
+    }
+
+    @GetMapping("/getByJobSeekerId")
+    private DataResult getByJobSeekerId(int id) {
+        return  abilityService.getByJobSeekerId(id);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

@@ -51,6 +51,6 @@ public class EducationManager implements IEducationService {
 
     @Override
     public DataResult<List<Education>> getByJobSeekerId(int id) {
-        return new SuccessDataResult(educationDao.getByJobSeekerId(id));
+        return new SuccessDataResult(educationDao.getByJobSeeker_Id(id));
     }
 }

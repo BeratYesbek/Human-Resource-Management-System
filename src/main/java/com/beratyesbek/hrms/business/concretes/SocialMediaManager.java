@@ -51,6 +51,6 @@ public class SocialMediaManager implements ISocialMediaService {
 
     @Override
     public DataResult<List<SocialMedia>> getByJobSeekerId(int id) {
-        return new SuccessDataResult(socialMediaDao.getByJobSeekerId(id));
+        return new SuccessDataResult(socialMediaDao.getByJobSeeker_Id(id));
     }
 }

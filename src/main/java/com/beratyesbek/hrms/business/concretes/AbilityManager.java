@@ -53,6 +53,6 @@ public class AbilityManager implements IAbilityService {
 
     @Override
     public DataResult<List<Ability>> getByJobSeekerId(int id) {
-        return new SuccessDataResult(abilityDao.getByJobSeekerId(id));
+        return new SuccessDataResult(abilityDao.getByJobSeeker_Id(id));
     }
 }

@@ -15,7 +15,9 @@ public class HumanResourceManagementSystemApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(HumanResourceManagementSystemApplication.class, args);
+
     }
+
 
     @Bean
     public Docket api() {

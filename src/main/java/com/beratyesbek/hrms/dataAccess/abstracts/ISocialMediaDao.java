@@ -10,5 +10,5 @@ import java.util.List;
 
 public interface ISocialMediaDao extends JpaRepository<SocialMedia,Integer> {
 
-    List<Ability> getByJobSeekerId(int id);
+    List<SocialMedia> getByJobSeeker_Id(int id);
 }

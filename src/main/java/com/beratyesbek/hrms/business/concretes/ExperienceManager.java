@@ -51,6 +51,6 @@ public class ExperienceManager implements IExperienceService {
 
     @Override
     public DataResult<List<Experience>> getByJobSeekerId(int id) {
-        return new SuccessDataResult(experienceDao.getByJobSeekerId(id));
+        return new SuccessDataResult(experienceDao.getByJobSeeker_Id(id));
     }
 }

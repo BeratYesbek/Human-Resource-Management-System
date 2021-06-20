@@ -10,5 +10,5 @@ import java.util.List;
 
 public interface IExperienceDao extends JpaRepository<Experience,Integer> {
 
-    List<Ability> getByJobSeekerId(int id);
+    List<Experience> getByJobSeeker_Id(int id);
 }

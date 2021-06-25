@@ -55,4 +55,9 @@ public class JobAdvertisementManager implements IJobAdvertisementService {
         return new SuccessDataResult(this.jobAdvertisementDao.getJobAdvertisementWithEmployerDetails()) ;
     }
 
+    @Override
+    public DataResult<List<JobAdvertisementWithEmployerDto>> getJobAdvertisementDetailById(int id) {
+        return new SuccessDataResult(this.jobAdvertisementDao.getJobAdvertisementWithEmployerDetailsById(id));
+    }
+
 }

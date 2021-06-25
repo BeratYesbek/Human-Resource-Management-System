@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface IJobAdvertisementService extends IServiceRepository<JobAdvertisement>{
     DataResult<List<JobAdvertisementWithEmployerDto>> getAllJobAdvertisementDetail();
+    public DataResult<List<JobAdvertisementWithEmployerDto>> getJobAdvertisementDetailById(int id);
 }

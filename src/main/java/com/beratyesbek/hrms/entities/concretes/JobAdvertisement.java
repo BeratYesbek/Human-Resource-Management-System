@@ -1,5 +1,7 @@
 package com.beratyesbek.hrms.entities.concretes;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,8 +34,11 @@ public class JobAdvertisement {
     @Column(name = "number_of_position")
     private int numberOfPosition;
 
-    @Column(name = "salary_scale")
-    private int[] salaryScale;
+    @Column(name = "maxSalary")
+    private int maxSalary;
+
+    @Column(name = "minSalary")
+    private int minSalary;
 
     @Column(name = "application_deadline")
     private Date applicationDeadline;
@@ -42,6 +47,8 @@ public class JobAdvertisement {
     @JoinColumn(name = "employer_id")
     private Employer employer;
 
-
+    @JsonIgnore
+    @OneToMany(mappedBy = "jobAdvertisements")
+    private List<Application> applications;
 
 }

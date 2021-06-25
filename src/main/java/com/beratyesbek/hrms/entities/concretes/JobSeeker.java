@@ -1,5 +1,6 @@
 package com.beratyesbek.hrms.entities.concretes;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -51,5 +52,14 @@ public class JobSeeker extends User {
     @JsonIgnore
     @OneToMany(mappedBy = "jobSeeker")
     private List<Education> educations;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "jobSeeker")
+    private List<CoverLetter> coverLetters;
+
+    @OneToMany(mappedBy = "jobSeeker")
+    private List<Application> applications;
+
+
 
 }

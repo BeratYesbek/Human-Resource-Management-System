@@ -19,8 +19,20 @@ public class SocialMedia {
     @Column(name = "social_media_id")
     private int socialMediaId;
 
-    @Column(name = "url")
-    private String url;
+    @Column(name = "gitHub")
+    private String gitHub;
+
+    @Column(name = "facebook")
+    private String facebook;
+
+    @Column(name = "instagram")
+    private String instagram;
+
+    @Column(name = "twitter")
+    private String twitter;
+
+    @Column(name = "google")
+    private String google;
 
     @ManyToOne
     @JoinColumn(name = "id")

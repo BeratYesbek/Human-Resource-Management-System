@@ -16,15 +16,17 @@ public class CvDto {
     private List<Experience> experiences;
     private List<Education> educations;
     private List<Language> languages;
-    private List<SocialMedia> socialMedia;
+    private SocialMedia socialMedia;
+    private CoverLetter coverLetter;
 
     public CvDto(JobSeeker jobSeeker, List<Ability> abilities, List<Experience> experiences,
-                 List<Education> educations, List<Language> languages, List<SocialMedia> socialMedia) {
+                 List<Education> educations, List<Language> languages, SocialMedia socialMedia,CoverLetter coverLetter) {
         this.jobSeeker = jobSeeker;
         this.abilities = abilities;
         this.experiences = experiences;
         this.educations = educations;
         this.languages = languages;
         this.socialMedia = socialMedia;
+        this.coverLetter = coverLetter;
     }
 }

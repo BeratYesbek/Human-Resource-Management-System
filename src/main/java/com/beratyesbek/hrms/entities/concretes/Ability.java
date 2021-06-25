@@ -13,6 +13,7 @@ import javax.validation.Valid;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "abilities")
+
 public class Ability {
 
     @Id

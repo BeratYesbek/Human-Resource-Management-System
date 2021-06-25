@@ -24,7 +24,9 @@ public class JobAdvertisementWithEmployerDto {
 
     private int numberOfPosition;
 
-    private int[] salaryScale;
+    private int maxSalary;
+
+    private int minSalary;
 
     private Date applicationDeadline;
 }

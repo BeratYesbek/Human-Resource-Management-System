@@ -14,4 +14,7 @@ public interface IJobAdvertisementDao extends JpaRepository<JobAdvertisement, In
 
     @Query(SpringBootQueries.JOB_ADVERTISEMENT_WITH_EMPLOYER_QUERY)
     List<JobAdvertisementWithEmployerDto> getJobAdvertisementWithEmployerDetails();
+
+    @Query(SpringBootQueries.JOB_ADVERTISEMENT_WITH_EMPLOYER_BY_ID_QUERY)
+    List<JobAdvertisementWithEmployerDto> getJobAdvertisementWithEmployerDetailsById(int id);
 }

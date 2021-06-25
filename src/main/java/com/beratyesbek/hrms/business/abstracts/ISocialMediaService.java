@@ -7,6 +7,6 @@ import com.beratyesbek.hrms.entities.concretes.SocialMedia;
 import java.util.List;
 
 public interface ISocialMediaService extends IServiceRepository<SocialMedia>{
-    DataResult<List<SocialMedia>> getByJobSeekerId(int id);
+    DataResult<SocialMedia> getByJobSeekerId(int id);
 
 }

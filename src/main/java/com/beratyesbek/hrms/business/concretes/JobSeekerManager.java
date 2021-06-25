@@ -22,6 +22,8 @@ public class JobSeekerManager implements IJobSeekerService {
     private IExperienceService experienceService;
     private ISocialMediaService socialMediaService;
     private IEducationService educationService;
+    private ILanguageService languageService;
+    private ICoverLetterService coverLetterService;
 
 
     @Autowired
@@ -29,7 +31,9 @@ public class JobSeekerManager implements IJobSeekerService {
                             IAbilityService abilityService,
                             IExperienceService experienceService,
                             ISocialMediaService socialMediaService,
-                            IEducationService educationService
+                            IEducationService educationService,
+                            ILanguageService languageService,
+                            ICoverLetterService coverLetterService
 
     ) {
         this.abilityService = abilityService;
@@ -37,6 +41,8 @@ public class JobSeekerManager implements IJobSeekerService {
         this.experienceService = experienceService;
         this.socialMediaService = socialMediaService;
         this.jobSeekerDao = jobSeekerDao;
+        this.languageService = languageService;
+        this.coverLetterService = coverLetterService;
     }
 
     @Override
@@ -80,8 +86,10 @@ public class JobSeekerManager implements IJobSeekerService {
                 abilityService.getByJobSeekerId(id).getData(),
                 experienceService.getByJobSeekerId(id).getData(),
                 educationService.getByJobSeekerId(id).getData(),
-                null,
-                socialMediaService.getByJobSeekerId(id).getData());
+                languageService.getByJobSeekerId(id).getData(),
+                socialMediaService.getByJobSeekerId(id).getData(),
+                coverLetterService.getByJobSeekerId(id).getData()
+               );
 
         return new SuccessDataResult(cvDto);
     }

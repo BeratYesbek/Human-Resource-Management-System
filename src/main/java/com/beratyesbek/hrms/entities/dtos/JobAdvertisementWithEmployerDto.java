@@ -29,4 +29,7 @@ public class JobAdvertisementWithEmployerDto {
     private int minSalary;
 
     private Date applicationDeadline;
+
+    private Boolean approve;
+
 }

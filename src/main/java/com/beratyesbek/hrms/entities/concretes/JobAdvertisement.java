@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+
 @Data
 @Entity
 @NoArgsConstructor
@@ -43,9 +44,14 @@ public class JobAdvertisement {
     @Column(name = "application_deadline")
     private Date applicationDeadline;
 
+    @Column(name = "approve")
+    private Boolean approve;
+
+
     @ManyToOne
     @JoinColumn(name = "employer_id")
     private Employer employer;
+
 
     @JsonIgnore
     @OneToMany(mappedBy = "jobAdvertisements")

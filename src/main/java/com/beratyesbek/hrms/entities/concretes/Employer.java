@@ -2,6 +2,7 @@ package com.beratyesbek.hrms.entities.concretes;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,6 +16,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "employers")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvertisements"})
+
 public class Employer {
 
     @Id
@@ -34,6 +37,9 @@ public class Employer {
     @Column(name = "phone_number")
     private String phoneNumber;
 
+    @Column(name = "image_url")
+    private String imageUrl;
+
     @Column(name = "password")
     private String password;
 
@@ -41,7 +47,12 @@ public class Employer {
     private String passwordAgain;
 
     @OneToMany(mappedBy = "employer")
+    @JsonIgnore
     private List<JobAdvertisement> jobAdvertisements;
+
+    @OneToMany(mappedBy = "employer")
+    @JsonIgnore
+    private List<Image> images;
 
 
 

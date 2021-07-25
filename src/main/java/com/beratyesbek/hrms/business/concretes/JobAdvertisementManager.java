@@ -31,7 +31,8 @@ public class JobAdvertisementManager implements IJobAdvertisementService {
 
     @Override
     public Result update(JobAdvertisement entity) {
-        return null;
+         jobAdvertisementDao.save(entity);
+         return new SuccessResult("Data was updated successfully");
     }
 
     @Override
@@ -58,6 +59,11 @@ public class JobAdvertisementManager implements IJobAdvertisementService {
     @Override
     public DataResult<List<JobAdvertisementWithEmployerDto>> getJobAdvertisementDetailById(int id) {
         return new SuccessDataResult(this.jobAdvertisementDao.getJobAdvertisementWithEmployerDetailsById(id));
+    }
+
+    @Override
+    public DataResult<List<JobAdvertisement>> getJobAdvertisementDetailByEmployerId(int employerId) {
+        return new SuccessDataResult(this.jobAdvertisementDao.getByEmployer_EmployerId(employerId));
     }
 
 }

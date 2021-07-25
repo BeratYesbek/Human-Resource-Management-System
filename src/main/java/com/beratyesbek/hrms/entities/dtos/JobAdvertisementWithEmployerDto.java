@@ -16,6 +16,8 @@ public class JobAdvertisementWithEmployerDto {
 
     private String companyName;
 
+    private String imageUrl;
+
     private String location;
 
     private String jobDescription;

@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface IApplicationService extends IServiceRepository<Application>{
     DataResult<List<Application>> getByJobSeeker_Id(int id);
+    DataResult<List<Application>> getApplicationDetailByJobAdvertisementId(int jobAdvertisementId);
 
 }

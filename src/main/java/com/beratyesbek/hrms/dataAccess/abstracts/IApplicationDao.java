@@ -13,4 +13,8 @@ public interface IApplicationDao extends JpaRepository<Application,Integer> {
 
     List<Application> getByJobSeeker_Id(int id);
 
+    List<Application> getByJobAdvertisements_JobAdvertisementId(int jobAdvertisementId);
+
+
+
 }

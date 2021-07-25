@@ -15,10 +15,15 @@ import java.util.List;
 @Table(name = "job_seekers")
 @Data
 @PrimaryKeyJoinColumn(name="id",referencedColumnName = "id")
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class JobSeeker extends User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
 
     @Column(name = "first_name")
     private String firstName;
@@ -32,6 +37,9 @@ public class JobSeeker extends User {
 
     @Column(name = "identity_number")
     private String identityNumber;
+
+    @Column(name = "image_url")
+    private String imageUrl;
 
     @JsonIgnore
     @OneToMany(mappedBy = "jobSeeker")
@@ -58,8 +66,12 @@ public class JobSeeker extends User {
     private List<CoverLetter> coverLetters;
 
     @OneToMany(mappedBy = "jobSeeker")
+    @JsonIgnore
     private List<Application> applications;
 
+    @JsonIgnore
+    @ManyToMany(mappedBy = "jobSeeker")
+    private List<Image> images;
 
 
 }

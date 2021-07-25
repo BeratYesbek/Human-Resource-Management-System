@@ -16,7 +16,7 @@ public class CoverLetter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int cover_letter_id;
 
-    private String cover_letter_text;
+        private String cover_letter_text;
 
     @ManyToOne
     @JoinColumn(name = "id")

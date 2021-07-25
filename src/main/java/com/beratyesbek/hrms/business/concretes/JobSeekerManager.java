@@ -47,8 +47,9 @@ public class JobSeekerManager implements IJobSeekerService {
 
     @Override
     public Result add(JobSeeker entity) {
-        jobSeekerDao.save(entity);
-        return new SuccessResult("JobSeeker was added successfully");
+        JobSeeker jobSeeker = jobSeekerDao.save(entity);
+        Integer id = jobSeeker.getId();
+        return new SuccessResult(id.toString());
     }
 
     @Override

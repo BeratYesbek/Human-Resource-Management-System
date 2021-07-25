@@ -6,6 +6,7 @@ import com.beratyesbek.hrms.business.abstracts.IJobSeekerService;
 import com.beratyesbek.hrms.core.utilities.DataResult;
 import com.beratyesbek.hrms.core.utilities.Result;
 import com.beratyesbek.hrms.core.utilities.SuccessDataResult;
+import com.beratyesbek.hrms.core.utilities.SuccessResult;
 import com.beratyesbek.hrms.dataAccess.abstracts.IApplicationDao;
 import com.beratyesbek.hrms.dataAccess.abstracts.IJobSeekerDao;
 import com.beratyesbek.hrms.entities.concretes.Application;
@@ -36,7 +37,8 @@ public class ApplicationManager implements IApplicationService {
 
     @Override
     public Result add(Application entity) {
-        return null;
+        applicationDao.save(entity);
+        return new SuccessResult("Data was added");
     }
 
     @Override
@@ -63,5 +65,10 @@ public class ApplicationManager implements IApplicationService {
     public DataResult<List<Application>>getByJobSeeker_Id(int id) {
 
        return new SuccessDataResult(applicationDao.getByJobSeeker_Id(id));
+    }
+
+    @Override
+    public DataResult<List<Application>> getApplicationDetailByJobAdvertisementId(int jobAdvertisementId) {
+        return new SuccessDataResult(applicationDao.getByJobAdvertisements_JobAdvertisementId(jobAdvertisementId));
     }
 }

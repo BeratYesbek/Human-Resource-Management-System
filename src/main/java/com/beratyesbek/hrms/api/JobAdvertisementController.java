@@ -37,7 +37,7 @@ public class JobAdvertisementController {
     }
 
     @GetMapping("/getById")
-    private DataResult getById( int id) {
+    private DataResult<JobAdvertisement> getById( int id) {
         return jobAdvertisementService.getById(id);
     }
 
@@ -47,8 +47,21 @@ public class JobAdvertisementController {
         return jobAdvertisementService.add(jobAdvertisement);
     }
 
+    @PostMapping("/update")
+    private Result update(@RequestBody JobAdvertisement jobAdvertisement){
+        System.out.println(jobAdvertisement.getApprove());
+        return jobAdvertisementService.update(jobAdvertisement);
+    }
+
     @PostMapping("/delete")
     private Result delete(@RequestBody JobAdvertisement jobAdvertisement) {
         return jobAdvertisementService.delete(jobAdvertisement);
     }
+
+    @GetMapping("/getJobAdvertisementByEmployer")
+    private DataResult<List<JobAdvertisement>> getJobAdvertisementByEmployer(int employerId){
+        return jobAdvertisementService.getJobAdvertisementDetailByEmployerId(employerId);
+    }
+
+
 }
